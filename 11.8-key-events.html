@@ -6,6 +6,7 @@
         <title>Document</title>
     </head>
     <body>
+        <!-- EXERCISE 11.8 -->
         <div class="output">Only numbers appear here</div>
         <input
             type="text"
@@ -28,6 +29,7 @@
         const eles = document.querySelectorAll(".input");
 
         function checkInput(e) {
+            //!isNan is like saying: "if the argument IS A NUMBER, return true"
             if (!isNaN(e.key)) {
                 output.innerText = e.key;
             }
