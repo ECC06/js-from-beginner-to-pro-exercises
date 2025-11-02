@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <form action="" method="">
+            <input
+                type="text"
+                name="first"
+                id="first"
+                placeholder="First name"
+            />
+            <input type="text" name="last" id="last" placeholder="Last name" />
+            <input type="text" name="age" id="age" placeholder="Age" />
+            <input type="submit" value="submit" />
+        </form>
+
+        <script>
+            let error = false;
+
+            function checkIfInputEmpty() {
+                const form = document.querySelector("form");
+                const formElements =
+                    document.querySelectorAll("input[type=text]");
+                const errorMessages = ["first name", "last name", "age"];
+
+                for (let i = 0; i < formElements.length; i++) {
+                    let userInput = formElements[i].value;
+
+                    if (userInput.length === 0) {
+                        console.log(`Please type in your ${errorMessages[i]}`);
+                        error = true;
+                    }
+                }
+            }
+
+            function checkAge() {
+                const ageInput = document.querySelector("#age");
+
+                if (ageInput !== "") {
+                    if (ageInput < 19) {
+                        console.log("Age must be over 19");
+                        error = true;
+                    }
+                }
+            }
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                checkIfInputEmpty();
+                checkAge();
+
+                if (!error) {
+                    alert("form submitted");
+                }
+            });
+        </script>
+    </body>
+</html>
