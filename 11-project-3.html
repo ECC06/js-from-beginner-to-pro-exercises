@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>C11 Project 3</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    </head>
+    <style>
+        #page {
+            border: 2px solid;
+            height: 200px;
+            width: 200px;
+        }
+        .active {
+            background-color: red;
+        }
+    </style>
+    <body>
+        <div id="page"></div>
+        <div id="output"></div>
+    </body>
+
+    <script>
+        const pageElem = document.querySelector("#page");
+        const output = document.querySelector("#output");
+
+        function showMousePosition(event) {
+            output.innerText = `x: ${event.clientX}, y: ${event.clientY}`;
+        }
+
+        function clearMousePosition(event) {
+            output.innerText = "";
+        }
+
+        pageElem.addEventListener("mouseover", function (event) {
+            this.classList.add("active");
+        });
+
+        pageElem.addEventListener("mouseout", function (event) {
+            this.classList.remove("active");
+        });
+
+        pageElem.addEventListener("mousemove", showMousePosition);
+
+        pageElem.addEventListener("mouseleave", clearMousePosition);
+    </script>
+</html>

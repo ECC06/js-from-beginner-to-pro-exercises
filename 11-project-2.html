@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>C11 Project 2</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    </head>
+    <body>
+        <ul class="stars">
+            <li class="star">&#10029;</li>
+            <li class="star">&#10029;</li>
+            <li class="star">&#10029;</li>
+            <li class="star">&#10029;</li>
+            <li class="star">&#10029;</li>
+        </ul>
+        <div class="output"></div>
+
+        <script>
+            const starsListElem = document.querySelectorAll(".stars");
+            const starElements = document.querySelectorAll(".star");
+            const output = document.querySelector(".output");
+            const outputObj = { index: 0 };
+
+            function starRate(event) {
+                output.innerText = event.target.starValue;
+
+                starElements.forEach((starElem, index) => {
+                    // debugger;
+                    if (index < event.target.starValue) {
+                        starElem.classList.add("orange");
+                    } else {
+                        starElem.classList.remove("orange");
+                    }
+                });
+            }
+
+            starElements.forEach((star, index) => {
+                star.starValue = index + 1;
+                star.addEventListener("click", starRate);
+            });
+        </script>
+    </body>
+</html>

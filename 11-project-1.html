@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>C11 Project 1</title>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    </head>
+    <body>
+        <main>
+            <div class="box" id="box1">One</div>
+            <div class="box" id="box2">Two</div>
+            <div class="box" id="box3">Three</div>
+            <div class="box" id="box4">Four</div>
+        </main>
+
+        <script>
+            const trackerArr = [];
+            const main = document.querySelector("main");
+
+            main.addEventListener("click", function (event) {
+                const target = event.target;
+
+                if (event.target.id !== "") {
+                    const elemInfo = {
+                        textContent: event.target.textContent,
+                        tagName: event.target.tagName,
+                        className: event.target.className,
+                    };
+
+                    trackerArr.push(elemInfo);
+                }
+
+                console.log(trackerArr);
+            });
+        </script>
+    </body>
+</html>
